@@ -1,0 +1,175 @@
+/*
+Salary::Salary(int id,float basic_pay , int month, char fname[], char lname[])
+{
+	Attendance A;
+	eid = id;
+	strcat(fname, lname);
+	strcpy(name, fname);
+	month = month;
+	year = 2016;
+	days_in_month = A.mnth(month);
+	present_days = A.count_present_days(id);
+	if(present_days < days_in_month-4)
+	{
+		ab_days = days_in_month - present_days - 4;
+		float temp = basic_pay/30;
+		basic = present_days * temp;
+	}
+	else
+		ab_days = 0;
+		basic = basic_pay;
+	medical = basic * 0.01;
+	hra = basic * 0.1;
+	da = basic * 0.05;
+	pf = basic * 0.04;
+	if(basic > 10000)
+		tax = 100.0F;
+	else
+		tax = 0.0F;
+	total = basic + medical + hra + da - (pf + tax);
+}/*
+void Salary::entry_salary(int id, float basic_pay)
+{
+	int month = gmtm->tm_mon-1;
+	Salary(id, basic_pay, month);
+	ofstream file("Salary.dat",ios::binary | ios::app);
+	if(file.fail())
+		cout << "No file available!";
+	else
+	{
+		file.write((char *) this, sizeof(Salary));
+	
+	}
+	file.close();
+}
+/*
+void Salary::calc_salary(int id, float basic_pay)
+{
+	eid = id;
+	basic = basic_pay;
+	medical = basic * (1/100);
+	hra = basic * (10/100);
+	da = basic * (5/100);
+	pf = basic * (4/100);
+	total = basic + medical + hra + da - (pf + tax);
+	//salary_slip();
+}
+
+void Salary::salary_slip(int id, int mon = gmtm->tm_mon-1)
+{
+	bool found = false;
+	ifstream file("Salary.dat",ios::binary);
+	if(file.fail())
+	{
+		cout << "An error Occured!";
+		getch();
+	}
+	else
+	{
+		while(!file.eof())
+		{
+			file.read((char *) this,sizeof(Salary));
+			if(file.eof())
+				break;
+			if(eid == id)
+			{
+				found = true;
+				ss_format();
+				getch();
+				break;
+			}
+		}
+		getch();
+	}
+	file.close();
+	if(found == false)
+	{
+		cout << "Till Salary Slip Not Generated....!";
+		getch();
+		EMP_SCREEN();
+	}
+}*/
+/*void Profile::show_profile()
+{
+	cout << endl << setw(47) << "- EMPLOYEE PROFILE -" << endl;
+	cout << endl << setw(28) << "#EMP ID : " << empId;
+	cout << setw(25) << "Designation : " << Designation << endl;
+	cout << setw(27) << "Salary : " << Basic_Salary << setw(19) << "Role: " << setw(10);
+	if(eRole == 1) cout << "ADMIN";
+	else if(eRole == 2) cout << "HR";
+	else cout << "EMPLOYEE";
+	cout << endl;
+}*/
+/*void HRM::search_employee()
+{
+	int id;
+	cout << setw(55) << "Enter the Employee id for search : ";
+	cin >> id;
+	Profile P;
+	ifstream file("Employee_data.dat",ios::binary);
+	if(file.fail())
+		cout << "Error occured";
+	else
+	{
+		bool found = false;
+		while(!file.eof())
+		{
+			file.read((char *)&P,sizeof(P));
+			if(file.eof())
+				break;
+			if(P.empId == id)
+			{
+				P.show_personal_details();
+				cout << P;
+				found = true;
+			}
+		}
+		if(found == false)
+			cout << endl << " RECORD NO :-: " << id << " :-: IS NOT FOUND!!!" << endl;
+	}
+	file.close();
+}*/
+/*void Profile::create_profile()
+{
+	empId += 1;
+	cout << endl << setw(50) << "----- EMPLOYEE PROFILE -----";
+	cout << endl << setw(38) << "Designation : ";
+	cin.getline(Designation,20);
+	cout << endl << setw(33) << "Salary : ";
+	cin >> Basic_Salary;
+	cout << endl << setw(49) << "-- SELECT EMPLOYEE ROLE --" << endl;
+	cout << endl << setw(35) << "1. ADMIN";
+	cout << endl << setw(32) << "2. HR";
+	cout << endl << setw(38) << "3. EMPLOYEE";
+	cout << endl << setw(46) << "Enter Employee Role: ";
+	cin >> eRole;
+}*/
+/*void HRM::operator<<(ostream & Temp)
+{
+	int id;
+	Temp << setw(55) << "Enter the Employee id for search : ";
+	cin >> id;
+	Profile P;
+	ifstream file("Employee_data.dat",ios::binary);
+	if(file.fail())
+		Temp << "Error occured";
+	else
+	{
+		bool found = false;
+		while(!file.eof())
+		{
+			file.read((char *)&P,sizeof(P));
+			if(file.eof())
+				break;
+			if(P.empId == id)
+			{
+				P.show_personal_details();
+				Temp << P;
+				found = true;
+			}
+		}
+		if(found == false)
+			Temp << endl << " RECORD NO :-: " << id << " :-: IS NOT FOUND!!!" << endl;
+	}
+	file.close();
+}*/
